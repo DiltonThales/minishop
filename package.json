@@ -1,0 +1,24 @@
+{
+  "name": "minishop-(modelo)",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiltonThales/minishop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DiltonThales/minishop/issues"
+  },
+  "homepage": "https://github.com/DiltonThales/minishop#readme",
+  "devDependencies": {
+    "cypress": "^15.6.0"
+  }
+}
