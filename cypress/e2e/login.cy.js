@@ -35,6 +35,7 @@ describe('Testes de login do MiniShop', () => {
 
     // Asserção
     cy.contains('button', 'Sair').should("exist") // validar se mudou de página, como página home, ou por exemplo botão de sair que pode ser usado para validar
+    cy.title().should('be.eq', 'MiniShop - Home') // segunda validação pelo home
   })
 
 })
