@@ -1,11 +1,9 @@
 describe('Testes de login do MiniShop', () => {
 
-  before(() => {
+  
+  beforeEach(() => { //elimina o visite de todas as partes
     cy.fixture('usuarios').its('usuarioValido').as('usuarioValido')
     cy.fixture('usuarios').its('usuarioInvalido').as('usuarioInvalido')
-  })
-
-  beforeEach(() => { //elimina o visite de todas as partes
     cy.visit('./html/index.html')
   })
 
@@ -27,7 +25,13 @@ describe('Testes de login do MiniShop', () => {
   it('Login com dados incorretos', () => {  
     
     //Login por comandos
-    cy.login({usuario: 'teste', senha: '12345'})
+    cy.get('@usuarioInvalido').then((usuario) => {
+      cy.login(usuario)
+    })
+
+
+    //Login por comandos
+    //cy.login({usuario: 'teste', senha: '12345'})
 
     // Asserção
     cy.get('div[role=alert]').should('be.visible')
@@ -36,10 +40,12 @@ describe('Testes de login do MiniShop', () => {
   it('Login com dados corretos', () => {  
     
     //Login por comandos
-    cy.login({usuario: 'admin', senha: '12345'})
+    cy.get('@usuarioValido').then((usuario) => {
+      cy.login(usuario)
+    })
 
     // Asserção
-    cy.contains('button', 'Sair').should("exist") // validar se mudou de página, como página home, ou por exemplo botão de sair que pode ser usado para validar
+    cy.contains('button', 'Sair').should('exist') // validar se mudou de página, como página home, ou por exemplo botão de sair que pode ser usado para validar
     cy.title().should('be.eq', 'MiniShop - Home') // segunda validação pelo home
   })
 
