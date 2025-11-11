@@ -4,7 +4,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   const pass = document.getElementById("password").value.trim();
   const alertContainer = document.getElementById("alert-container");
 
-  if (user === "admin" && pass === "12345") {
+  if (user === "admin" && pass === "123456") {
     localStorage.setItem("loggedIn", "true");
     window.location.href = "home.html";
   } else {
