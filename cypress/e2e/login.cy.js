@@ -18,4 +18,15 @@ describe('Testes de login do MiniShop', () => {
     cy.get('div[role=alert]').should('be.visible')
   })
 
+
+  it('Login com dados incorretos', () => {  
+    
+    //Login por comandos
+    cy.login({usuario: 'teste', senha: '12345'})
+
+    // Asserção
+    cy.get('div[role=alert]').should('be.visible')
+  })
+
+
 })

@@ -1,3 +1,46 @@
+// Comando Login
+Cypress.Commands.add('login', (dados = {usuario: '', senha: ''}) => {
+    cy.get('#username').clear().type(dados.usuario)
+    cy.get('#password').clear().type(dados.senha)
+    cy.get('button[type=submit]').click()
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
