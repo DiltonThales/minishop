@@ -1,6 +1,6 @@
 describe('Testes de login do MiniShop', () => {
 
-  beforeEach(() => {
+  beforeEach(() => { //elimina o visite de todas as partes
     cy.visit('./html/index.html')
   })
 
@@ -10,8 +10,9 @@ describe('Testes de login do MiniShop', () => {
   })
 
   it('Login com campos em branco', () => {
-    
-
+    cy.get('#username').clear()
+    cy.get('#password').clear()  
+    cy.get('#button[type=submit]').click
   })
 
 })
