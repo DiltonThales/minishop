@@ -1,5 +1,10 @@
 describe('Testes de login do MiniShop', () => {
 
+  before(() => {
+    cy.fixture('usuarios').its('usuarioValido').as('usuarioValido')
+    cy.fixture('usuarios').its('usuarioInvalido').as('usuarioInvalido')
+  })
+
   beforeEach(() => { //elimina o visite de todas as partes
     cy.visit('./html/index.html')
   })
