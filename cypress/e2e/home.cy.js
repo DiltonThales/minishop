@@ -11,17 +11,15 @@ describe('Página Home da Aplicação MiniShop', () => {
     const loginPage = new LoginPage()
     
     beforeEach(() => {
-        cy.fixture('usuario').as('usuarios') // busca firture usuarios
+        cy.fixture('usuarios').as('usuarios') // busca firture usuarios
 
-        cy.get('@usuarios').then(() => {
+        cy.get('@usuarios').then((usuarios) => {
             const usuario = usuarios.usuarioValido
-            home.visitar(
-                LoginPage.login(usuario.usuario, usuario.senha)
-            )
+            home.visitar()
+            loginPage.login(usuario.usuario, usuario.senha)
         })
 
-        home.visitar()
-        loginPage.login('admin', '12345')
+        
     })
 
     it('Deve exibir o titulo correto', () =>{
