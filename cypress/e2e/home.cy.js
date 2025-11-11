@@ -11,6 +11,8 @@ describe('Página Home da Aplicação MiniShop', () => {
     const loginPage = new LoginPage()
     
     beforeEach(() => {
+        cy.fixture('usuario').as('usuarios') // busca firture usuarios
+
         home.visitar()
         loginPage.login('admin', '12345')
     })
