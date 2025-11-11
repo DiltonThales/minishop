@@ -28,5 +28,13 @@ describe('Testes de login do MiniShop', () => {
     cy.get('div[role=alert]').should('be.visible')
   })
 
+  it('Login com dados corretos', () => {  
+    
+    //Login por comandos
+    cy.login({usuario: 'admin', senha: '12345'})
+
+    // Asserção
+    cy.contains('button', 'Sair').should("exist") // validar se mudou de página, como página home, ou por exemplo botão de sair que pode ser usado para validar
+  })
 
 })
